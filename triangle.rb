@@ -14,7 +14,19 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  # WRITE THIS CODE
+  sides = [a, b, c].sort
+
+  raise TriangleError if sides.any? {|x| x <= 0}
+
+  raise TriangleError unless (sides[0] + sides[1]) > sides[2]
+
+  if sides.count(a) == 3
+    :equilateral
+  elsif sides.count(a) == 2 || sides.count(b) == 2 || sides.count(c) ==2
+    :isosceles
+  elsif sides.count(a) == 1
+    :scalene
+  end
 end
 
 # Error class used in part 2.  No need to change this code.
