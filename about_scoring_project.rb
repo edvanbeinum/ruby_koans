@@ -31,6 +31,11 @@ require File.expand_path(File.dirname(__FILE__) + '/edgecase')
 
 def score(dice)
 
+  if(dice.length == 3)
+    return 1000 if dice.uniq.length == 1 && dice.at(0) == 1
+    return dice.at(0) * 100 if dice.uniq.length == 1
+  end
+
   if(dice.length == 1)
     case dice.at(0)
     when 5
