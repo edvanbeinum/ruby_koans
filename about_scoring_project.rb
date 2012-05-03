@@ -51,8 +51,6 @@ def score(dice)
     end
     return total_score
   end
-
-
   return 0
 end
 
